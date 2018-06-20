@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  php:
+    build: ./php
+    volumes:
+      - ./:/var/www/html
+      - /var/log/apache2/demo:/var/log/apache2/
+    ports:
+      - '8000:80'
+    depends_on:
+      - db
+
+  db:
+    build: ./db
